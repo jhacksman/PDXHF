@@ -1,138 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portland Hacker Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+    <script src="javascripts/includes.js"></script>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #e8f5e9;
-            color: #2e7d32;
+            color: #333;
         }
         header {
             background-color: #1b5e20;
-            color: #ffffff;
-            padding: 20px 0;
+            color: white;
             text-align: center;
-            background-image: url('trees.jpg');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 1rem;
         }
         main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
-        h2 {
+        section {
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
             color: #1b5e20;
-            border-bottom: 2px solid #66bb6a;
-            padding-bottom: 10px;
         }
-        p {
-            margin-bottom: 20px;
-        }
-        a {
-            color: #2e7d32;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button {
-            display: inline-block;
-            background-color: #66bb6a;
-            color: #ffffff;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            text-align: center;
-            text-decoration: none;
+        .cta {
+            background-color: #2e7d32;
+            color: white;
+            padding: 1.5rem;
             border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        .cta h2 {
+            color: white;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 3px;
             font-weight: bold;
+            margin-top: 1rem;
         }
-        .button:hover {
-            background-color: #57a05a;
-        }
-        strong {
-            color: #388e3c;
-        }
-        hr {
-            border: none;
-            height: 1px;
+        .cta-button:hover {
             background-color: #66bb6a;
-            margin: 50px 0;
         }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #4caf50;
-            margin-bottom: 40px;
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
         }
-        em {
-            color: #2e7d32;
+        .card h3 {
+            margin-top: 0;
         }
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            main {
-                margin: 20px;
-            }
-            .button {
-                width: 100%;
-                margin: 10px 0;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-{% include header.html %}
+<div id="header-include"></div>
 
 <header>
     <h1>Portland Hacker Foundation</h1>
+    <p>Supporting the hacker community in Portland, Oregon</p>
 </header>
 
 <main>
-    <p>The Portland Hacker Foundation is a 501(c)(3) with a goal to take donations from the community and issue the funds as grants to people or organizations in the community who are building great things, with a strong focus on information security and related fields, especially those aligned with a strong hacker ethos. Grants will specifically target asymmetric impact, where small amounts of money ($1k, $5k, $10k, etc.) will enable significant work in the space. For this reason, early on, the most likely targets will be University research projects.</p>
+    <section class="cta">
+        <h2>Apply for a Grant</h2>
+        <p>The Portland Hacker Foundation provides grants to support hacker projects, events, and initiatives in the Portland area.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform" class="cta-button">Apply Now</a>
+    </section>
 
-    <!-- Added Buttons -->
-    <div style="text-align: center;">
-        <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou" class="button">Join our Signal Chat</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform" class="button">Apply for a Grant</a>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA" class="button">Become a Sponsor</a>
-    </div>
+    <section>
+        <h2>About Us</h2>
+        <p>The Portland Hacker Foundation is a non-profit organization dedicated to supporting the hacker community in Portland, Oregon. We provide grants, resources, and support for hacker projects, events, and initiatives.</p>
+    </section>
 
-    <h2>Funding</h2>
-
-    <p>As it stands, the current idea is that we would collect tax-deductible donations from the general public and organizations in our community, which will immediately be stored in a treasury consisting of low-risk index funds managed by Vanguard or similar. Maybe strategically across VITAX, VTSAX, VTIVX, etc.</p>
-
-    <p>Every year, maybe January 1st, the size of the treasury will be observed, and expenses for the year will be calculated. Up to 5% of the treasury will go towards grants, up to 2% on events, and up to 2% on employee salary. Events and salary budget will likely not be accessed in the first few years of operation until the treasury grows to a sustainable size. Long term, if there are any full-time employees that need to be hired, their salaries will be capped at $100k, possibly pegged to 2025 inflation. The idea is to grow the treasury every year to enable more grants to the community as the treasury continues to grow.</p>
-
-    <h2>Community Deliverables</h2>
-
-    <p>Monthly <strong>HACKLUNCH</strong> to discuss various foundation-related topics. At least in the beginning, these events would be paid for out of pocket by individual attendees rather than using the events budget.</p>
-
-    <p>There will be a website for people to submit grant proposals, and at least once a year, a voting ceremony to determine who will receive grants for their projects. There may also be a Discord server, or similar, where people can discuss foundation-related business.</p>
-
-    <h2>Sponsor Subscriptions</h2>
-
-    <p>We might include the ability for community sponsor to pay sponsorship subscriptions. Maybe at three levels: $10 a year, $100 a year, and $1,000 a year. When the time comes to vote on grant proposals, maybe sponsors will have the ability to vote on projects they want to fund with a weight of 1, 2, and 3 votes according to their sponsorship level.</p>
-
-    <h2>Values</h2>
-
-    <p>At PDXHF we strongly value diversity and inclusion to ensure maximum funding impact. We also support human rights for all humans, education, localism, artistic creativity, and the general Portlandian weirdness that keeps Portland a safe space for the type of creative work we need to build and grow as a leader in the global community.</p>
+    <section>
+        <h2>Our Programs</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Grants</h3>
+                <p>We provide financial support for hacker projects, events, and initiatives in the Portland area.</p>
+            </div>
+            <div class="card">
+                <h3>Events</h3>
+                <p>We organize and support hacker events, workshops, and meetups in the Portland area.</p>
+            </div>
+            <div class="card">
+                <h3>Resources</h3>
+                <p>We provide resources and support for hackers and hacker spaces in the Portland area.</p>
+            </div>
+        </div>
+    </section>
 
 </main>
 
-{% include footer.html %}
+<div id="footer-include"></div>
 </body>
 </html>
