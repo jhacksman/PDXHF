@@ -1,138 +1,137 @@
+---
+# this is an empty front matter
+---
+
 <!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
-    <meta charset="UTF-8">
-    <title>Portland Hacker Foundation</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-        }
-        header {
-            background-color: #1b5e20;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            background-image: url('trees.jpg');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        h2 {
-            color: #1b5e20;
-            border-bottom: 2px solid #66bb6a;
-            padding-bottom: 10px;
-        }
-        p {
-            margin-bottom: 20px;
-        }
-        a {
-            color: #2e7d32;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button {
-            display: inline-block;
-            background-color: #66bb6a;
-            color: #ffffff;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .button:hover {
-            background-color: #57a05a;
-        }
-        strong {
-            color: #388e3c;
-        }
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #66bb6a;
-            margin: 50px 0;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #4caf50;
-            margin-bottom: 40px;
-        }
-        em {
-            color: #2e7d32;
-        }
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            main {
-                margin: 20px;
-            }
-            .button {
-                width: 100%;
-                margin: 10px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-{% include header.html %}
+<html>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
 
-<header>
-    <h1>Portland Hacker Foundation</h1>
-</header>
+    <main>
+      <div class="row">
+        <div class="large-12 columns">
+          <section class="content-section fade-in">
+            <h2 id="mission" class="section-header">Our Mission</h2>
+            
+            <p>The Portland Hacker Foundation is a 501(c)(3) with a goal to take donations from the community and issue the funds as grants to people or organizations in the community who are building great things, with a strong focus on information security and related fields, especially those aligned with a strong hacker ethos. Grants will specifically target asymmetric impact, where small amounts of money ($1k, $5k, $10k, etc.) will enable significant work in the space. For this reason, early on, the most likely targets will be University research projects.</p>
 
-<main>
-    <p>The Portland Hacker Foundation is a 501(c)(3) with a goal to take donations from the community and issue the funds as grants to people or organizations in the community who are building great things, with a strong focus on information security and related fields, especially those aligned with a strong hacker ethos. Grants will specifically target asymmetric impact, where small amounts of money ($1k, $5k, $10k, etc.) will enable significant work in the space. For this reason, early on, the most likely targets will be University research projects.</p>
+            <div class="text-center margin-top-2 margin-bottom-2">
+              <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou" class="button">Join our Signal Chat</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform" class="button">Apply for a Grant</a>
+              <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA" class="button">Become a Sponsor</a>
+              <a href="chat.html" class="button">Ask a Question</a>
+            </div>
+          </section>
 
-    <!-- Added Buttons -->
-    <div style="text-align: center;">
-        <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou" class="button">Join our Signal Chat</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform" class="button">Apply for a Grant</a>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA" class="button">Become a Sponsor</a>
+          <section class="content-section fade-in">
+            <h2 class="section-header">Funding</h2>
+
+            <p>As it stands, the current idea is that we would collect tax-deductible donations from the general public and organizations in our community, which will immediately be stored in a treasury consisting of low-risk index funds managed by Vanguard or similar. Maybe strategically across VITAX, VTSAX, VTIVX, etc.</p>
+
+            <p>Every year, maybe January 1st, the size of the treasury will be observed, and expenses for the year will be calculated. Up to 5% of the treasury will go towards grants, up to 2% on events, and up to 2% on employee salary. Events and salary budget will likely not be accessed in the first few years of operation until the treasury grows to a sustainable size. Long term, if there are any full-time employees that need to be hired, their salaries will be capped at $100k, possibly pegged to 2025 inflation. The idea is to grow the treasury every year to enable more grants to the community as the treasury continues to grow.</p>
+          </section>
+
+          <section class="content-section fade-in">
+            <h2 id="ways-to-give" class="section-header">Ways to Give</h2>
+
+            <div class="row">
+              <div class="large-6 columns">
+                <div class="card">
+                  <h3>HACKLUNCH</h3>
+                  <p>Monthly <strong>HACKLUNCH</strong> to discuss various foundation-related topics. At least in the beginning, these events would be paid for out of pocket by individual attendees rather than using the events budget.</p>
+                </div>
+              </div>
+              <div class="large-6 columns">
+                <div class="card">
+                  <h3>Grant Proposals</h3>
+                  <p>There will be a website for people to submit grant proposals, and at least once a year, a voting ceremony to determine who will receive grants for their projects. There may also be a Discord server, or similar, where people can discuss foundation-related business.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-section fade-in">
+            <h2 class="section-header">Sponsor Subscriptions</h2>
+
+            <p>We might include the ability for community sponsor to pay sponsorship subscriptions. Maybe at three levels:</p>
+            
+            <div class="row margin-top-1">
+              <div class="large-4 columns">
+                <div class="card text-center">
+                  <h3>Basic</h3>
+                  <p>$10 per year</p>
+                  <p>1 vote weight</p>
+                  <a href="#" class="button">Select Plan</a>
+                </div>
+              </div>
+              <div class="large-4 columns">
+                <div class="card text-center">
+                  <h3>Standard</h3>
+                  <p>$100 per year</p>
+                  <p>2 vote weight</p>
+                  <a href="#" class="button">Select Plan</a>
+                </div>
+              </div>
+              <div class="large-4 columns">
+                <div class="card text-center">
+                  <h3>Premium</h3>
+                  <p>$1,000 per year</p>
+                  <p>3 vote weight</p>
+                  <a href="#" class="button">Select Plan</a>
+                </div>
+              </div>
+            </div>
+            
+            <p class="margin-top-1">When the time comes to vote on grant proposals, sponsors will have the ability to vote on projects they want to fund with weights according to their sponsorship level.</p>
+          </section>
+
+          <section class="content-section fade-in">
+            <h2 id="values" class="section-header">Values</h2>
+
+            <p>At PDXHF we strongly value diversity and inclusion to ensure maximum funding impact. We also support human rights for all humans, education, localism, artistic creativity, and the general Portlandian weirdness that keeps Portland a safe space for the type of creative work we need to build and grow as a leader in the global community.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <div id='footer'>
+      <div class='three spacing'></div>
+      <div class='row'>
+        <div class='large-6 medium-6 columns'>
+          <h1>
+            <a href='index.html'>Portland Hacker Foundation</a>
+          </h1>
+          <p>©2025 Portland Hacker Foundation</p>
+          <div class='spacing'></div>
+        </div>
+        <div class='large-6 medium-6 columns'>
+          <div class='spacing'></div>
+          <h4>Contact Information</h4>
+          <ul>
+            <li>Email: info@pdxhf.org</li>
+          </ul>
+          <div class='spacing'></div>
+          <ul class='socials'>
+            <li>
+              <a href='#'>
+                <i class='fa fa-github'></i>
+              </a>
+            </li>
+            <li>
+              <a href='#'>
+                <i class='fa fa-twitter'></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="contact" class='two spacing'></div>
     </div>
 
-    <h2>Funding</h2>
-
-    <p>As it stands, the current idea is that we would collect tax-deductible donations from the general public and organizations in our community, which will immediately be stored in a treasury consisting of low-risk index funds managed by Vanguard or similar. Maybe strategically across VITAX, VTSAX, VTIVX, etc.</p>
-
-    <p>Every year, maybe January 1st, the size of the treasury will be observed, and expenses for the year will be calculated. Up to 5% of the treasury will go towards grants, up to 2% on events, and up to 2% on employee salary. Events and salary budget will likely not be accessed in the first few years of operation until the treasury grows to a sustainable size. Long term, if there are any full-time employees that need to be hired, their salaries will be capped at $100k, possibly pegged to 2025 inflation. The idea is to grow the treasury every year to enable more grants to the community as the treasury continues to grow.</p>
-
-    <h2>Community Deliverables</h2>
-
-    <p>Monthly <strong>HACKLUNCH</strong> to discuss various foundation-related topics. At least in the beginning, these events would be paid for out of pocket by individual attendees rather than using the events budget.</p>
-
-    <p>There will be a website for people to submit grant proposals, and at least once a year, a voting ceremony to determine who will receive grants for their projects. There may also be a Discord server, or similar, where people can discuss foundation-related business.</p>
-
-    <h2>Sponsor Subscriptions</h2>
-
-    <p>We might include the ability for community sponsor to pay sponsorship subscriptions. Maybe at three levels: $10 a year, $100 a year, and $1,000 a year. When the time comes to vote on grant proposals, maybe sponsors will have the ability to vote on projects they want to fund with a weight of 1, 2, and 3 votes according to their sponsorship level.</p>
-
-    <h2>Values</h2>
-
-    <p>At PDXHF we strongly value diversity and inclusion to ensure maximum funding impact. We also support human rights for all humans, education, localism, artistic creativity, and the general Portlandian weirdness that keeps Portland a safe space for the type of creative work we need to build and grow as a leader in the global community.</p>
-
-</main>
-
-{% include footer.html %}
-</body>
+    <!-- JavaScript -->
+    <script src="javascripts/jquery-3.3.1.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
 </html>

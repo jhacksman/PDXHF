@@ -1,36 +1,116 @@
-<div class='contain-to-grid sticky'>
-  <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
-    <ul class='title-area'>
-      <li class='name'>
-        <h1>
-          <a href='index.html'>
-            <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
-            Portland Hacker Foundation
-          </a>
-        </h1>
-      </li>
-      <li class='toggle-topbar menu-icon'>
-        <a href='#'>Menu</a>
-      </li>
-    </ul>
-    <section class='top-bar-section'>
-      <ul class="right">
-        <li class="active">
-          <a href="index.html">Home</a>
+<header class="banner">
+  <h1>Portland Hacker Foundation</h1>
+  <div class='contain-to-grid sticky hide-nav' id="navigation">
+    <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
+      <ul class='title-area'>
+        <li class='name'>
+          <h1>
+            <a href='index.html'>Portland Hacker Foundation</a>
+          </h1>
         </li>
-        <li class="">
-          <a href="chat.html">Chat</a>
-        </li>
-        <li class="">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a>
-        </li>
-        <li class="">
-          <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a>
-        </li>
-        <li class="">
-          <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a>
+        <li class='toggle-topbar menu-icon'>
+          <a href='#'>Menu</a>
         </li>
       </ul>
-    </section>
-  </nav>
-</div>
+      <section class='top-bar-section'>
+        <ul class="right">
+          <li class="active">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="has-dropdown">
+            <a href='javascript:void(0);'>About <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="index.html#mission">Our Mission</a></li>
+              <li><a href="index.html#values">Our Values</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">History</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href='javascript:void(0);'>Programs <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#ways-to-give">Ways to Give</a></li>
+              <li><a href="#">Grant Programs</a></li>
+              <li><a href="#">HACKLUNCH</a></li>
+              <li><a href="#">Community Events</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href='javascript:void(0);'>Resources <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="chat.html">AI Assistant</a></li>
+              <li><a href="#">Newsletter</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.querySelector('header.banner');
+    const navigation = document.getElementById('navigation');
+    
+    if (!banner || !navigation) {
+      console.error('Banner or navigation element not found');
+      return;
+    }
+    
+    // Make sure navigation starts hidden
+    navigation.classList.add('hide-nav');
+    
+    // Force immediate DOM calculation
+    const bannerHeight = banner.offsetHeight;
+    console.log('Banner height:', bannerHeight);
+    
+    function checkScroll() {
+      const currentScrollPosition = window.pageYOffset;
+      console.log('Scroll position:', currentScrollPosition, 'Threshold:', bannerHeight/2);
+      
+      // Show navigation when scrolled past half the banner
+      if (currentScrollPosition > bannerHeight/2) {
+        if (!navigation.classList.contains('show-nav')) {
+          console.log('Showing navigation');
+          // First remove hide class to prepare for animation
+          navigation.classList.remove('hide-nav');
+          navigation.style.transform = 'translateY(0)';
+          navigation.style.opacity = '1';
+          
+          // Force browser to process the removal before adding show
+          setTimeout(function() {
+            navigation.classList.add('show-nav');
+          }, 10);
+        }
+      } else {
+        if (navigation.classList.contains('show-nav') || navigation.style.opacity === '1') {
+          console.log('Hiding navigation');
+          navigation.classList.remove('show-nav');
+          navigation.style.opacity = '0';
+          navigation.style.transform = 'translateY(-100%)';
+          
+          // Wait for transition to complete before adding hide-nav
+          setTimeout(function() {
+            navigation.classList.add('hide-nav');
+          }, 300);
+        }
+      }
+    }
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', checkScroll);
+    
+    // Trigger scroll check on page load
+    setTimeout(function() {
+      checkScroll();
+      // And check again after a brief delay to ensure proper calculation
+      setTimeout(checkScroll, 500);
+    }, 100);
+  });
+</script>

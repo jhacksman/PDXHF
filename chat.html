@@ -1,3 +1,7 @@
+---
+# this is an empty front matter
+---
+
 <!DOCTYPE html>
 <html>
   {% include head.html %}
@@ -6,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
     <!-- Additional inline styles for code blocks, thoughts area, etc. -->
     <style>
-      /* Call-to-Action and Info Icon Styles */
+      /* Info Icon Styles */
       .info-icon {
         display: inline-block;
-        color: #3498db;
+        color: #2e7d32;
         cursor: help;
         margin-left: 5px;
         font-style: normal;
@@ -125,6 +129,14 @@
         padding: 0.5rem 1rem;
         font-size: 1rem;
         cursor: pointer;
+        background-color: #2e7d32;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      
+      #reset-btn:hover {
+        background-color: #1b5e20;
       }
     </style>
   </head>
@@ -132,56 +144,58 @@
     {% include header.html %}
 
     <!-- Top Call-to-Action Section -->
-    <div class="full no-padding" style="background: #fff;">
-      <div class="mod modCallToAction">
-        <div class="row">
-          <div class="small-12 columns" style="text-align: center;">
-            <p>
-              Try our new Portland Hacker Foundation chatbot! 
-              <span class="info-icon" title="This is an experimental AI assistant. Responses may not be accurate or complete. Use this tool for general guidance only, and verify any critical information through official channels.">
-                ⓘ
-              </span>
-            </p>
-          </div>
+    <div class="full no-padding">
+      <div class="row">
+        <div class="small-12 columns" style="text-align: center; margin-top: 30px;">
+          <h2>Portland Hacker Foundation Chat</h2>
+          <p>
+            Ask questions about PDXHF and get instant help from our AI assistant 
+            <span class="info-icon" title="This is an experimental AI assistant. Responses may not be accurate or complete. Use this tool for general guidance only, and verify any critical information through official channels.">
+              ⓘ
+            </span>
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Reset Conversation Button -->
-    <button id="reset-btn">Reset Conversation</button>
-
     <!-- Main Chat Container -->
     <div id="main" role="main">
-      <div class="full" style="background: #fff; padding: 2rem 0;">
+      <div class="full" style="padding: 2rem 0;">
         <div class="row">
           <div class="medium-8 medium-offset-2 columns">
-            <!-- Chat Messages Display -->
-            <div id="message-list">
-              <!-- Chat messages will be appended here -->
-            </div>
-            <!-- Chat Input Form -->
-            <form id="chat-form" class="input-area" style="margin-top: 1rem; display: flex; gap: 0.5rem;">
-              <textarea id="user-input" placeholder="Type your question (Shift+Enter for newline, Enter to send)..." autocomplete="off" required style="flex: 1; padding: 0.5rem; font-size: 1rem; resize: vertical; height: 3rem;"></textarea>
-              <button type="submit" style="padding: 0.5rem 1rem; font-size: 1rem;">Send</button>
-            </form>
+            <section class="content-section fade-in">
+              <div class="chat-container">
+                <!-- Reset Conversation Button -->
+                <button id="reset-btn">Reset Conversation</button>
+                
+                <!-- Chat Messages Display -->
+                <div id="message-list">
+                  <!-- Chat messages will be appended here -->
+                </div>
+                
+                <!-- Chat Input Form -->
+                <form id="chat-form" class="input-area" style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                  <textarea id="user-input" placeholder="Type your question (Shift+Enter for newline, Enter to send)..." autocomplete="off" required style="flex: 1; padding: 0.5rem; font-size: 1rem; resize: vertical; height: 3rem;"></textarea>
+                  <button type="submit" class="button" style="padding: 0.5rem 1rem; font-size: 1rem; height: auto;">Send</button>
+                </form>
+              </div>
+            </section>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Bottom Call-to-Action Section -->
-    <div class="full no-padding" style="background: #fff; margin-top: 2rem;">
-      <div class="mod modCallToAction">
-        <div class="row">
-          <div class="small-12 columns" style="text-align: center;">
-            <p>
-              chat not working? 
-              <span class="info-icon" title="This is an experimental AI assistant. Responses may not be accurate or complete. Use this tool for general guidance only, and verify any critical information through official channels.">
-                ⓘ
-              </span>
-            </p>
-            <a class="button" href="https://venice.ai/c/jack-hacksman" target="_blank" rel="noopener noreferrer">alternative chat</a>
-          </div>
+    <div class="full no-padding" style="margin-top: 2rem;">
+      <div class="row">
+        <div class="small-12 columns" style="text-align: center; margin-bottom: 30px;">
+          <p>
+            Chat not working? Try our alternative chat option 
+            <span class="info-icon" title="This external chat uses the same AI model but with a different interface.">
+              ⓘ
+            </span>
+          </p>
+          <a class="button" href="https://venice.ai/c/jack-hacksman" target="_blank" rel="noopener noreferrer">Alternative Chat</a>
         </div>
       </div>
     </div>
@@ -191,6 +205,10 @@
     <!-- Include marked and Prism.js libraries -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <!-- Foundation JavaScript -->
+    <script src="javascripts/jquery-3.3.1.js"></script>
+    <script src="javascripts/app.js" type="text/javascript"></script>
 
     <!-- Inline JavaScript -->
     <script>
@@ -297,7 +315,7 @@
           msgDiv.style.wordWrap = "break-word";
 
           if (sender === "user") {
-            msgDiv.style.background = "#e0f7fa";
+            msgDiv.style.background = "#e8f5e9";
             msgDiv.style.textAlign = "right";
             msgDiv.innerHTML = renderMarkdown(text);
           } else if (sender === "bot" && isThinking) {

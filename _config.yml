@@ -1,0 +1,10 @@
+title: Portland Hacker Foundation
+description: The Portland Hacker Foundation is a 501(c)(3) organization dedicated to funding projects in information security and related fields.
+url: "https://pdxhf.org"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
