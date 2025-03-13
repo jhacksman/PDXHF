@@ -54,16 +54,19 @@ header h1 {
     align-items: center;
     padding: 0;
     width: 100%;
-}
-
-.top-bar .title-area {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .top-bar-section {
     display: flex;
     align-items: center;
     height: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .top-bar-section ul {
@@ -71,7 +74,9 @@ header h1 {
     margin: 0;
     padding: 0;
     height: 20px;
-    gap: 15px;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .top-bar-section ul li {
@@ -79,6 +84,8 @@ header h1 {
     display: inline-block;
     margin: 0;
     height: 20px;
+    flex: 1;
+    text-align: center;
 }
 
 .top-bar-section ul li > a {
@@ -89,6 +96,7 @@ header h1 {
     font-size: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .top-bar-section ul li.active > a {
