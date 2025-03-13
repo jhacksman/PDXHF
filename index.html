@@ -9,78 +9,44 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
-    <script src="javascripts/includes.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background-color: #1b5e20;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h1, h2, h3 {
-            color: #1b5e20;
-        }
-        .cta {
-            background-color: #2e7d32;
-            color: white;
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
-        }
-        .cta h2 {
-            color: white;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #4caf50;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 3px;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-        .cta-button:hover {
-            background-color: #66bb6a;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-<div id="header-include"></div>
+<div class='contain-to-grid sticky'>
+  <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
+    <ul class='title-area'>
+      <li class='name'>
+        <h1>
+          <a href='index.html'>
+            <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
+            Portland Hacker Foundation
+          </a>
+        </h1>
+      </li>
+      <li class='toggle-topbar menu-icon'>
+        <a href='#'>Menu</a>
+      </li>
+    </ul>
+    <section class='top-bar-section'>
+      <ul class="right">
+        <li class="active">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="">
+          <a href="chat.html">Chat</a>
+        </li>
+        <li class="">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a>
+        </li>
+        <li class="">
+          <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a>
+        </li>
+        <li class="">
+          <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</div>
 
 <header>
     <h1>Portland Hacker Foundation</h1>
@@ -116,9 +82,74 @@
             </div>
         </div>
     </section>
-
 </main>
 
-<div id="footer-include"></div>
+<div id='footer'>
+  <div class='three spacing'></div>
+  <div class='row'>
+    <div class='large-3 medium-3 columns'>
+      <h1>
+        <a href='index.html'>
+          <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
+        </a>
+      </h1>
+      <p>©2025 Portland Hacker Foundation</p>
+      <div class='spacing'></div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <div class='links'>
+        <h4>Common Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chat.html">Chat</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a></li>
+          <li><a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a></li>
+        </ul>
+      </div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <div class='links'>
+        <h4>Recommended Links</h4>
+        <ul>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hackerspace">Hackerspaces</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hacker_ethic">Hacker Ethic</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://wiki.hackerspaces.org/Design_Patterns">Design Patterns</a></li>
+        </ul>
+      </div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <h4>Contact Information</h4>
+      <ul>
+        <li>Email: info@pdxhf.org</li>
+        <li>Location: Portland, OR USA</li>
+      </ul>
+      <div class='spacing'></div>
+      <ul class='socials'>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href='#'>
+            <i class='fa fa-twitter'></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href='#'>
+            <i class='fa fa-facebook'></i>
+          </a>
+        </li>
+      </ul>
+      <div class='spacing'></div>
+    </div>
+  </div>
+  <div class='two spacing'></div>
+</div>
+
+<script>
+  $(document).foundation();
+</script>
 </body>
 </html>
