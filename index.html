@@ -1,6 +1,13 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+
+<header>
+    <h1>Portland Hacker Foundation</h1>
+</header>
+
+{% include header.html %}
 
 <main>
     <p>The Portland Hacker Foundation is a 501(c)(3) with a goal to take donations from the community and issue the funds as grants to people or organizations in the community who are building great things, with a strong focus on information security and related fields, especially those aligned with a strong hacker ethos. Grants will specifically target asymmetric impact, where small amounts of money ($1k, $5k, $10k, etc.) will enable significant work in the space. For this reason, early on, the most likely targets will be University research projects.</p>
@@ -32,6 +39,32 @@ layout: default
 
     <p>At PDXHF we strongly value diversity and inclusion to ensure maximum funding impact. We also support human rights for all humans, education, localism, artistic creativity, and the general Portlandian weirdness that keeps Portland a safe space for the type of creative work we need to build and grow as a leader in the global community.</p>
 </main>
+
+{% include footer.html %}
+
+<script>
+  // Add scroll event listener for header transition
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const body = document.body;
+    const navBar = document.querySelector('.contain-to-grid');
+    
+    // Add or remove 'scrolled' class based on scroll position
+    if (scrollPosition > 50) {
+      body.classList.add('scrolled');
+      navBar.style.transform = 'translateY(0)';
+      navBar.style.opacity = '1';
+      navBar.style.visibility = 'visible';
+    } else {
+      body.classList.remove('scrolled');
+      navBar.style.transform = 'translateY(-100%)';
+      navBar.style.opacity = '0';
+      navBar.style.visibility = 'hidden';
+    }
+  });
+</script>
+</body>
+</html>
 
 <script>
   // Add scroll event listener for header transition
