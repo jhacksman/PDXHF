@@ -96,7 +96,13 @@
     </style>
 </head>
 <body>
-<div class='contain-to-grid sticky'>
+<!-- Hero Header with Tree Image -->
+<div class="hero-header">
+    <h1>Portland Hacker Foundation</h1>
+</div>
+
+<!-- Sticky Navigation that appears on scroll -->
+<div class='contain-to-grid'>
   <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
       <li class='name'>
@@ -438,6 +444,26 @@
     });
     
     $(document).foundation();
+    
+    // Add scroll event listener for header transition
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        const body = document.body;
+        const navBar = document.querySelector('.contain-to-grid');
+        
+        // Add or remove 'scrolled' class based on scroll position
+        if (scrollPosition > 50) {
+            body.classList.add('scrolled');
+            navBar.style.transform = 'translateY(0)';
+            navBar.style.opacity = '1';
+            navBar.style.visibility = 'visible';
+        } else {
+            body.classList.remove('scrolled');
+            navBar.style.transform = 'translateY(-100%)';
+            navBar.style.opacity = '0';
+            navBar.style.visibility = 'hidden';
+        }
+    });
 </script>
 </body>
 </html>

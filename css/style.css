@@ -1,10 +1,51 @@
 /* Header Styles */
+.hero-header {
+  background-image: url('../trees.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: rgb(27, 94, 32);
+  background-blend-mode: multiply;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.hero-header h1 {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: font-size 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
 .contain-to-grid {
   background-color: #1b5e20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.3s ease;
+  visibility: hidden; /* Hide initially */
+  transform: translateY(-100%);
+  width: 100%;
 }
 
 .top-bar {
   background-color: #1b5e20;
+}
+
+.top-bar .name h1 a {
+  color: white;
 }
 
 .top-bar-section ul li {
@@ -17,6 +58,21 @@
 
 .top-bar-section ul li.active > a {
   background-color: #2e7d32;
+}
+
+/* Scrolled state classes */
+.scrolled .hero-header {
+  height: 100px;
+}
+
+.scrolled .hero-header h1 {
+  font-size: 32px;
+}
+
+.scrolled .contain-to-grid {
+  opacity: 1;
+  visibility: visible; /* Show when scrolled */
+  transform: translateY(0);
 }
 
 /* Footer Styles */
