@@ -18,8 +18,8 @@ header {
     background-position: center;
     background-blend-mode: multiply;
     transition: all 0.3s ease;
-    height: 12px;
-    line-height: 12px;
+    height: 10px;
+    line-height: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +37,7 @@ header h1 {
     left: 0;
     right: 0;
     z-index: 100;
-    height: 12px;
+    height: 10px;
     transition: all 0.3s ease;
     width: 100%;
     opacity: 0;
@@ -47,8 +47,8 @@ header h1 {
 
 .top-bar {
     background-color: #1b5e20;
-    height: 12px;
-    line-height: 12px;
+    height: 10px;
+    line-height: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,13 +58,13 @@ header h1 {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: none;
 }
 
 .top-bar-section {
     display: flex;
     align-items: center;
-    height: 12px;
+    height: 10px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
@@ -74,9 +74,9 @@ header h1 {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 12px;
+    height: 10px;
     list-style: none;
-    gap: 1px;
+    gap: 0;
     justify-content: center;
     align-items: center;
 }
@@ -85,17 +85,22 @@ header h1 {
     background-color: #1b5e20;
     display: inline-block;
     margin: 0;
-    height: 12px;
+    height: 10px;
     text-align: center;
     padding: 0;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.top-bar-section ul li:last-child {
+    border-right: none;
 }
 
 .top-bar-section ul li > a {
     color: #ffffff;
-    padding: 0 1px;
-    line-height: 12px;
+    padding: 0 4px;
+    line-height: 10px;
     display: block;
-    font-size: 0.35em;
+    font-size: 0.32em;
     text-transform: uppercase;
     letter-spacing: 0;
     white-space: nowrap;
