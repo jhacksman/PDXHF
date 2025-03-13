@@ -2,24 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portland Hacker Foundation - Chat</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chat - Portland Hacker Foundation</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <style>
+        #chat-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        #message-container {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+        }
+        .ai-message {
+            background-color: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+        }
+        .thinking {
+            color: #666;
+            font-style: italic;
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .code-block {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 10px 0;
+            position: relative;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 2px 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #f0f0f0;
+        }
+        .thoughts-container {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            display: none;
+        }
+        .thoughts-toggle {
+            color: #2196F3;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
-<!-- Hero Header with Tree Image -->
-<div class="hero-header">
+<header>
     <h1>Portland Hacker Foundation</h1>
-</div>
+</header>
 
-<!-- Sticky Navigation -->
-<div class='contain-to-grid sticky'>
+<!-- Navigation that appears on scroll -->
+<div class='contain-to-grid'>
   <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
       <li class='name'>
@@ -56,18 +133,17 @@
   </nav>
 </div>
 
-<div class="container" style="max-width: 800px; margin: 20px auto; padding: 20px;">
-    <div class="chat-container">
-        <div class="messages" id="messages" style="height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #f9f9f9;">
-            <!-- Messages will be displayed here -->
-        </div>
-        <div class="input-container" style="display: flex; margin-bottom: 10px;">
-            <textarea id="user-input" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; min-height: 80px;" placeholder="Type your message here..."></textarea>
-        </div>
-        <div class="button-container" style="display: flex; justify-content: space-between;">
-            <button id="send-button" class="button" style="background-color: #1b5e20; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Send Message</button>
-            <button id="reset-button" class="button secondary" style="background-color: #757575; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Reset Conversation</button>
-        </div>
+<div id="chat-container">
+    <h2>Chat with Portland Hacker Foundation AI</h2>
+    <p>Ask questions about hackerspaces, grants, or how to get involved with the Portland hacker community.</p>
+    
+    <div id="message-container"></div>
+    
+    <textarea id="user-input" placeholder="Type your message here..." rows="3"></textarea>
+    
+    <div class="button-container">
+        <button id="send-button" class="button success">Send Message</button>
+        <button id="reset-button" class="button secondary">Reset Conversation</button>
     </div>
 </div>
 
@@ -135,261 +211,252 @@
   <div class='two spacing'></div>
 </div>
 
-<style>
-    .thinking {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .thinking-dots {
-        display: flex;
-    }
-    .thinking-dot {
-        height: 8px;
-        width: 8px;
-        margin: 0 4px;
-        background-color: #999;
-        border-radius: 50%;
-        animation: thinking 1.5s infinite ease-in-out;
-    }
-    .thinking-dot:nth-child(1) {
-        animation-delay: 0s;
-    }
-    .thinking-dot:nth-child(2) {
-        animation-delay: 0.3s;
-    }
-    .thinking-dot:nth-child(3) {
-        animation-delay: 0.6s;
-    }
-    @keyframes thinking {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    .message {
-        margin-bottom: 15px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .user-message {
-        background-color: #e3f2fd;
-        text-align: right;
-        margin-left: 20%;
-    }
-    .ai-message {
-        background-color: #f1f1f1;
-        margin-right: 20%;
-    }
-    .message-content {
-        word-wrap: break-word;
-    }
-    .message-content pre {
-        background-color: #f8f8f8;
-        padding: 10px;
-        border-radius: 5px;
-        overflow-x: auto;
-        position: relative;
-    }
-    .copy-button {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        background-color: #1b5e20;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        padding: 3px 8px;
-        font-size: 12px;
-        cursor: pointer;
-    }
-    .copy-button:hover {
-        background-color: #2e7d32;
-    }
-</style>
-
 <script>
-    $(document).foundation();
-    
-    // Add scroll event listener for header transition
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.scrollY;
-        const body = document.body;
-        
-        // Add or remove 'scrolled' class based on scroll position
-        if (scrollPosition > 50) {
-            body.classList.add('scrolled');
-        } else {
-            body.classList.remove('scrolled');
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', function() {
-        const messagesContainer = document.getElementById('messages');
+        const messageContainer = document.getElementById('message-container');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
         const resetButton = document.getElementById('reset-button');
         
-        let isThinking = false;
-        let sessionId = null;
+        let conversationId = null;
         
         // Function to add a message to the chat
-        function addMessage(content, isUser) {
+        function addMessage(content, isUser = false) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+            messageDiv.className = isUser ? 'message user-message' : 'message ai-message';
+            messageDiv.innerHTML = isUser ? content : DOMPurify.sanitize(marked.parse(content));
             
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'message-content';
+            // Add copy buttons to code blocks
+            const codeBlocks = messageDiv.querySelectorAll('pre code');
+            codeBlocks.forEach(block => {
+                const pre = block.parentNode;
+                pre.classList.add('code-block');
+                
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = 'Copy';
+                copyButton.addEventListener('click', function() {
+                    navigator.clipboard.writeText(block.textContent);
+                    copyButton.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyButton.textContent = 'Copy';
+                    }, 2000);
+                });
+                
+                pre.appendChild(copyButton);
+            });
             
-            if (isUser) {
-                contentDiv.textContent = content;
-            } else {
-                // Use marked.js to render markdown
-                contentDiv.innerHTML = DOMPurify.sanitize(marked.parse(content));
+            messageContainer.appendChild(messageDiv);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+        
+        // Function to add thinking animation
+        function addThinking() {
+            const thinkingDiv = document.createElement('div');
+            thinkingDiv.className = 'message ai-message thinking';
+            thinkingDiv.id = 'thinking';
+            thinkingDiv.textContent = 'Thinking';
+            
+            const dots = document.createElement('span');
+            dots.id = 'thinking-dots';
+            dots.textContent = '...';
+            thinkingDiv.appendChild(dots);
+            
+            messageContainer.appendChild(thinkingDiv);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+            
+            // Animate the dots
+            let count = 0;
+            const thinkingInterval = setInterval(() => {
+                const dotsSpan = document.getElementById('thinking-dots');
+                if (dotsSpan) {
+                    count = (count + 1) % 4;
+                    dotsSpan.textContent = '.'.repeat(count + 1);
+                } else {
+                    clearInterval(thinkingInterval);
+                }
+            }, 500);
+            
+            return thinkingInterval;
+        }
+        
+        // Function to remove thinking animation
+        function removeThinking(interval) {
+            clearInterval(interval);
+            const thinkingDiv = document.getElementById('thinking');
+            if (thinkingDiv) {
+                thinkingDiv.remove();
+            }
+        }
+        
+        // Function to add AI thoughts
+        function addThoughts(thoughts, messageDiv) {
+            if (!thoughts || thoughts.trim() === '') return;
+            
+            const thoughtsToggle = document.createElement('div');
+            thoughtsToggle.className = 'thoughts-toggle';
+            thoughtsToggle.textContent = 'Show AI thoughts';
+            
+            const thoughtsContainer = document.createElement('div');
+            thoughtsContainer.className = 'thoughts-container';
+            thoughtsContainer.innerHTML = DOMPurify.sanitize(marked.parse(thoughts));
+            
+            thoughtsToggle.addEventListener('click', function() {
+                if (thoughtsContainer.style.display === 'block') {
+                    thoughtsContainer.style.display = 'none';
+                    thoughtsToggle.textContent = 'Show AI thoughts';
+                } else {
+                    thoughtsContainer.style.display = 'block';
+                    thoughtsToggle.textContent = 'Hide AI thoughts';
+                }
+            });
+            
+            messageDiv.appendChild(thoughtsToggle);
+            messageDiv.appendChild(thoughtsContainer);
+        }
+        
+        // Function to send a message to the AI
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message to chat
+            addMessage(message, true);
+            userInput.value = '';
+            
+            // Add thinking animation
+            const thinkingInterval = addThinking();
+            
+            try {
+                // Send message to backend
+                const response = await fetch('https://venice-backend-14aff752beac.herokuapp.com/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        conversation_id: conversationId,
+                    }),
+                    credentials: 'include',
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to get response from server');
+                }
+                
+                // Get the conversation ID from the response
+                const data = await response.json();
+                conversationId = data.conversation_id;
+                
+                // Remove thinking animation
+                removeThinking(thinkingInterval);
+                
+                // Add AI response to chat
+                const aiMessageDiv = document.createElement('div');
+                aiMessageDiv.className = 'message ai-message';
+                messageContainer.appendChild(aiMessageDiv);
+                
+                // Add thoughts if available
+                if (data.thoughts) {
+                    addThoughts(data.thoughts, aiMessageDiv);
+                }
+                
+                // Parse and display the AI response with markdown
+                aiMessageDiv.innerHTML += DOMPurify.sanitize(marked.parse(data.response));
                 
                 // Add copy buttons to code blocks
-                const codeBlocks = contentDiv.querySelectorAll('pre');
+                const codeBlocks = aiMessageDiv.querySelectorAll('pre code');
                 codeBlocks.forEach(block => {
+                    const pre = block.parentNode;
+                    pre.classList.add('code-block');
+                    
                     const copyButton = document.createElement('button');
                     copyButton.className = 'copy-button';
                     copyButton.textContent = 'Copy';
                     copyButton.addEventListener('click', function() {
-                        const code = block.querySelector('code').textContent;
-                        navigator.clipboard.writeText(code).then(() => {
-                            copyButton.textContent = 'Copied!';
-                            setTimeout(() => {
-                                copyButton.textContent = 'Copy';
-                            }, 2000);
-                        });
+                        navigator.clipboard.writeText(block.textContent);
+                        copyButton.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                        }, 2000);
                     });
-                    block.appendChild(copyButton);
-                });
-            }
-            
-            messageDiv.appendChild(contentDiv);
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-        
-        // Function to show thinking animation
-        function showThinking() {
-            if (isThinking) return;
-            
-            isThinking = true;
-            const thinkingDiv = document.createElement('div');
-            thinkingDiv.className = 'thinking';
-            thinkingDiv.id = 'thinking-indicator';
-            
-            const dotsDiv = document.createElement('div');
-            dotsDiv.className = 'thinking-dots';
-            
-            for (let i = 0; i < 3; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'thinking-dot';
-                dotsDiv.appendChild(dot);
-            }
-            
-            thinkingDiv.appendChild(dotsDiv);
-            messagesContainer.appendChild(thinkingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-        
-        // Function to hide thinking animation
-        function hideThinking() {
-            if (!isThinking) return;
-            
-            const thinkingDiv = document.getElementById('thinking-indicator');
-            if (thinkingDiv) {
-                thinkingDiv.remove();
-            }
-            isThinking = false;
-        }
-        
-        // Function to send a message to the backend
-        async function sendMessage(message) {
-            try {
-                showThinking();
-                
-                const response = await fetch('https://venice-backend-14aff752beac.herokuapp.com/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        session_id: sessionId
-                    }),
-                    credentials: 'include'
+                    
+                    pre.appendChild(copyButton);
                 });
                 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                
-                const data = await response.json();
-                sessionId = data.session_id;
-                
-                hideThinking();
-                addMessage(data.response, false);
+                messageContainer.scrollTop = messageContainer.scrollHeight;
             } catch (error) {
                 console.error('Error:', error);
-                hideThinking();
-                addMessage('Sorry, there was an error processing your request. Please try again later.', false);
+                removeThinking(thinkingInterval);
+                addMessage('Sorry, there was an error processing your request. Please try again later.');
             }
         }
         
         // Function to reset the conversation
         async function resetConversation() {
             try {
+                // Send reset request to backend
                 const response = await fetch('https://venice-backend-14aff752beac.herokuapp.com/reset', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
-                    credentials: 'include'
+                    credentials: 'include',
                 });
                 
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Failed to reset conversation');
                 }
                 
-                // Clear the messages container
-                messagesContainer.innerHTML = '';
-                sessionId = null;
+                // Clear the conversation ID and message container
+                conversationId = null;
+                messageContainer.innerHTML = '';
                 
                 // Add a system message
-                addMessage('Conversation has been reset. You can start a new chat now.', false);
+                addMessage('Conversation has been reset. You can start a new chat now.');
             } catch (error) {
                 console.error('Error:', error);
-                addMessage('Sorry, there was an error resetting the conversation. Please try again later.', false);
+                addMessage('Sorry, there was an error resetting the conversation. Please try again later.');
             }
         }
         
-        // Event listener for send button
-        sendButton.addEventListener('click', function() {
-            const message = userInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                userInput.value = '';
-                sendMessage(message);
-            }
-        });
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
         
-        // Event listener for enter key
         userInput.addEventListener('keydown', function(event) {
             if (event.key === 'Enter' && !event.shiftKey) {
                 event.preventDefault();
-                sendButton.click();
+                sendMessage();
             }
         });
         
-        // Event listener for reset button
         resetButton.addEventListener('click', resetConversation);
         
-        // Add initial message
-        addMessage('Hello! I am the Portland Hacker Foundation AI assistant. How can I help you today?', false);
+        // Initialize with a welcome message
+        addMessage('Welcome to the Portland Hacker Foundation chat! How can I help you today?');
+    });
+    
+    $(document).foundation();
+    
+    // Add scroll event listener for header transition
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        const body = document.body;
+        const navBar = document.querySelector('.contain-to-grid');
+        
+        // Add or remove 'scrolled' class based on scroll position
+        if (scrollPosition > 50) {
+            body.classList.add('scrolled');
+            navBar.style.transform = 'translateY(0)';
+            navBar.style.opacity = '1';
+            navBar.style.visibility = 'visible';
+        } else {
+            body.classList.remove('scrolled');
+            navBar.style.transform = 'translateY(-100%)';
+            navBar.style.opacity = '0';
+            navBar.style.visibility = 'hidden';
+        }
     });
 </script>
 </body>
