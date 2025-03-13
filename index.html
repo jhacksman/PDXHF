@@ -3,7 +3,7 @@
 {% include head.html %}
 <body>
 
-<header>
+<header class="hero-header">
     <h1>Portland Hacker Foundation</h1>
 </header>
 
@@ -48,6 +48,7 @@
     const scrollPosition = window.scrollY;
     const body = document.body;
     const navBar = document.querySelector('.contain-to-grid');
+    const heroHeader = document.querySelector('.hero-header');
     
     // Add or remove 'scrolled' class based on scroll position
     if (scrollPosition > 50) {
@@ -55,35 +56,17 @@
       navBar.style.transform = 'translateY(0)';
       navBar.style.opacity = '1';
       navBar.style.visibility = 'visible';
+      heroHeader.style.height = '0';
+      heroHeader.style.padding = '0';
     } else {
       body.classList.remove('scrolled');
       navBar.style.transform = 'translateY(-100%)';
       navBar.style.opacity = '0';
       navBar.style.visibility = 'hidden';
+      heroHeader.style.height = '300px';
+      heroHeader.style.padding = '20px 0';
     }
   });
 </script>
 </body>
 </html>
-
-<script>
-  // Add scroll event listener for header transition
-  window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    const body = document.body;
-    const navBar = document.querySelector('.contain-to-grid');
-    
-    // Add or remove 'scrolled' class based on scroll position
-    if (scrollPosition > 50) {
-      body.classList.add('scrolled');
-      navBar.style.transform = 'translateY(0)';
-      navBar.style.opacity = '1';
-      navBar.style.visibility = 'visible';
-    } else {
-      body.classList.remove('scrolled');
-      navBar.style.transform = 'translateY(-100%)';
-      navBar.style.opacity = '0';
-      navBar.style.visibility = 'hidden';
-    }
-  });
-</script>
