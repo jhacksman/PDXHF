@@ -9,15 +9,17 @@
   justify-content: center;
   position: relative;
   transition: all 0.3s ease;
-  background-color: rgb(27, 94, 32);
+  background-color: #1b5e20;
   background-blend-mode: multiply;
   margin-bottom: 0;
   width: 100%;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .hero-header h1 {
   color: white;
-  font-size: 48px;
+  font-size: 3em;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
