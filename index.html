@@ -11,6 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 </head>
 <body>
+<!-- Hero Header with Tree Image -->
+<div class="hero-header">
+    <h1>Portland Hacker Foundation</h1>
+</div>
+
+<!-- Sticky Navigation -->
 <div class='contain-to-grid sticky'>
   <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
@@ -47,11 +53,6 @@
     </section>
   </nav>
 </div>
-
-<header>
-    <h1>Portland Hacker Foundation</h1>
-    <p>Supporting the hacker community in Portland, Oregon</p>
-</header>
 
 <main>
     <section class="cta">
@@ -150,6 +151,19 @@
 
 <script>
   $(document).foundation();
+  
+  // Add scroll event listener for header transition
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const body = document.body;
+    
+    // Add or remove 'scrolled' class based on scroll position
+    if (scrollPosition > 50) {
+      body.classList.add('scrolled');
+    } else {
+      body.classList.remove('scrolled');
+    }
+  });
 </script>
 </body>
 </html>

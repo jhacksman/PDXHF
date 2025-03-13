@@ -1,6 +1,42 @@
 /* Header Styles */
+.hero-header {
+  background-image: url('../trees.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: height 0.3s ease;
+}
+
+.hero-header h1 {
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: font-size 0.3s ease;
+}
+
+.hero-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .contain-to-grid {
   background-color: #1b5e20;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .top-bar {
@@ -17,6 +53,19 @@
 
 .top-bar-section ul li.active > a {
   background-color: #2e7d32;
+}
+
+/* Scrolled state classes */
+.scrolled .hero-header {
+  height: 100px;
+}
+
+.scrolled .hero-header h1 {
+  font-size: 32px;
+}
+
+.scrolled .contain-to-grid {
+  opacity: 1;
 }
 
 /* Footer Styles */
@@ -60,4 +109,52 @@
 
 .two.spacing {
   height: 30px;
+}
+
+/* Main Content Styles */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cta {
+  background-color: #e8f5e9;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #1b5e20;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #2e7d32;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
 }
