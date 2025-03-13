@@ -76,7 +76,8 @@ header h1 {
     padding: 0;
     height: 18px;
     list-style: none;
-    gap: 8px;
+    gap: 4px;
+    justify-content: center;
 }
 
 .top-bar-section ul li {
@@ -85,7 +86,7 @@ header h1 {
     margin: 0;
     height: 18px;
     text-align: center;
-    padding: 0 4px;
+    padding: 0 2px;
 }
 
 .top-bar-section ul li > a {
@@ -93,9 +94,9 @@ header h1 {
     padding: 0;
     line-height: 18px;
     display: block;
-    font-size: 0.55em;
+    font-size: 0.5em;
     text-transform: uppercase;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
     white-space: nowrap;
     font-weight: 500;
 }
