@@ -47,8 +47,8 @@ header h1 {
 
 .top-bar {
     background-color: #1b5e20;
-    height: 20px;
-    line-height: 20px;
+    height: 18px;
+    line-height: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,45 +58,45 @@ header h1 {
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .top-bar-section {
     display: flex;
     align-items: center;
-    height: 20px;
+    height: 18px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
 }
 
 .top-bar-section ul {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 20px;
+    height: 18px;
     list-style: none;
-    justify-content: space-between;
-    width: 100%;
+    gap: 20px;
 }
 
 .top-bar-section ul li {
     background-color: #1b5e20;
     display: inline-block;
     margin: 0;
-    height: 20px;
-    flex: 1;
+    height: 18px;
     text-align: center;
 }
 
 .top-bar-section ul li > a {
     color: #ffffff;
     padding: 0;
-    line-height: 20px;
+    line-height: 18px;
     display: block;
-    font-size: 0.7em;
+    font-size: 0.65em;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     white-space: nowrap;
+    font-weight: 500;
 }
 
 .top-bar-section ul li.active > a {
