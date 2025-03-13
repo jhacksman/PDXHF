@@ -18,20 +18,15 @@ header {
     background-position: center;
     background-blend-mode: multiply;
     transition: all 0.3s ease;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 1em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: font-size 0.3s ease;
-    display: inline-block;
-    vertical-align: middle;
+    display: none;
 }
 
 /* Navigation Styles */
@@ -42,7 +37,7 @@ header h1 {
     left: 0;
     right: 0;
     z-index: 100;
-    height: 25px;
+    height: 20px;
     transition: all 0.3s ease;
     width: 100%;
     opacity: 0;
@@ -52,70 +47,48 @@ header h1 {
 
 .top-bar {
     background-color: #1b5e20;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 10px;
+    padding: 0;
     width: 100%;
 }
 
 .top-bar .title-area {
-    display: flex;
-    align-items: center;
-    height: 25px;
-    padding: 0;
-    margin: 0;
-}
-
-.top-bar .name h1 {
-    margin: 0;
-    font-size: 0.9em;
-    line-height: 25px;
-}
-
-.top-bar .name h1 a {
-    color: white;
-    display: flex;
-    align-items: center;
-    height: 25px;
-    white-space: nowrap;
-}
-
-.top-bar .name h1 a img {
-    margin-right: 5px;
-    vertical-align: middle;
-    height: 16px;
-    width: 16px;
+    display: none;
 }
 
 .top-bar-section {
     display: flex;
     align-items: center;
-    height: 25px;
+    height: 20px;
 }
 
 .top-bar-section ul {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 25px;
+    height: 20px;
+    gap: 15px;
 }
 
 .top-bar-section ul li {
     background-color: #1b5e20;
     display: inline-block;
     margin: 0;
-    height: 25px;
+    height: 20px;
 }
 
 .top-bar-section ul li > a {
     color: #ffffff;
-    padding: 0 6px;
-    line-height: 25px;
+    padding: 0;
+    line-height: 20px;
     display: block;
-    font-size: 0.75em;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .top-bar-section ul li.active > a {
