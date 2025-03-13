@@ -1,151 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Portland Hacker Foundation</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-        }
-        header {
-            background-color: #1b5e20;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            background-image: url('trees.jpg');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-            transition: all 0.3s ease;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            transition: font-size 0.3s ease;
-        }
-        main {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        h2 {
-            color: #1b5e20;
-            border-bottom: 2px solid #66bb6a;
-            padding-bottom: 10px;
-        }
-        p {
-            margin-bottom: 20px;
-        }
-        a {
-            color: #2e7d32;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .button {
-            display: inline-block;
-            background-color: #66bb6a;
-            color: #ffffff;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .button:hover {
-            background-color: #57a05a;
-        }
-        strong {
-            color: #388e3c;
-        }
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #66bb6a;
-            margin: 50px 0;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #4caf50;
-            margin-bottom: 40px;
-        }
-        em {
-            color: #2e7d32;
-        }
-        
-        /* Navigation Styles */
-        .contain-to-grid {
-            background-color: #1b5e20;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            opacity: 0;
-            transition: all 0.3s ease;
-            visibility: hidden;
-            transform: translateY(-100%);
-            width: 100%;
-        }
-        
-        .top-bar {
-            background-color: #1b5e20;
-        }
-        
-        .top-bar .name h1 a {
-            color: white;
-        }
-        
-        .top-bar-section ul li {
-            background-color: #1b5e20;
-        }
-        
-        .top-bar-section ul li > a {
-            color: #ffffff;
-        }
-        
-        .top-bar-section ul li.active > a {
-            background-color: #2e7d32;
-        }
-        
-        /* Scrolled state classes */
-        .scrolled header {
-            padding: 10px 0;
-        }
-        
-        .scrolled header h1 {
-            font-size: 2em;
-        }
-        
-        .scrolled .contain-to-grid {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            main {
-                margin: 20px;
-            }
-            .button {
-                width: 100%;
-                margin: 10px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portland Hacker Foundation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 </head>
 <body>
 
@@ -153,17 +16,11 @@
     <h1>Portland Hacker Foundation</h1>
 </header>
 
-<!-- Navigation that appears on scroll -->
-<div class='contain-to-grid'>
+<div class='contain-to-grid sticky'>
   <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
       <li class='name'>
-        <h1>
-          <a href='index.html'>
-            <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
-            Portland Hacker Foundation
-          </a>
-        </h1>
+        <h1><a href='index.html'><img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" /> Portland Hacker Foundation</a></h1>
       </li>
       <li class='toggle-topbar menu-icon'>
         <a href='#'>Menu</a>
@@ -171,21 +28,11 @@
     </ul>
     <section class='top-bar-section'>
       <ul class="right">
-        <li class="active">
-          <a href="index.html">Home</a>
-        </li>
-        <li class="">
-          <a href="chat.html">Chat</a>
-        </li>
-        <li class="">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a>
-        </li>
-        <li class="">
-          <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a>
-        </li>
-        <li class="">
-          <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a>
-        </li>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class=""><a href="chat.html">Chat</a></li>
+        <li class=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a></li>
+        <li class=""><a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a></li>
+        <li class=""><a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a></li>
       </ul>
     </section>
   </nav>
@@ -221,6 +68,70 @@
 
     <p>At PDXHF we strongly value diversity and inclusion to ensure maximum funding impact. We also support human rights for all humans, education, localism, artistic creativity, and the general Portlandian weirdness that keeps Portland a safe space for the type of creative work we need to build and grow as a leader in the global community.</p>
 </main>
+
+<div id='footer'>
+  <div class='three spacing'></div>
+  <div class='row'>
+    <div class='large-3 medium-3 columns'>
+      <h1>
+        <a href='index.html'>
+          <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
+        </a>
+      </h1>
+      <p>©2025 Portland Hacker Foundation</p>
+      <div class='spacing'></div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <div class='links'>
+        <h4>Common Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chat.html">Chat</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a></li>
+          <li><a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a></li>
+        </ul>
+      </div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <div class='links'>
+        <h4>Recommended Links</h4>
+        <ul>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hackerspace">Hackerspaces</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Hacker_ethic">Hacker Ethic</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://wiki.hackerspaces.org/Design_Patterns">Design Patterns</a></li>
+        </ul>
+      </div>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-3 medium-3 columns'>
+      <div class='spacing'></div>
+      <h4>Contact Information</h4>
+      <ul>
+        <li>Email: info@pdxhf.org</li>
+        <li>Location: Portland, OR USA</li>
+      </ul>
+      <div class='spacing'></div>
+      <ul class='socials'>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href='#'>
+            <i class='fa fa-twitter'></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href='#'>
+            <i class='fa fa-facebook'></i>
+          </a>
+        </li>
+      </ul>
+      <div class='spacing'></div>
+    </div>
+  </div>
+  <div class='two spacing'></div>
+</div>
 
 <script>
   // Add scroll event listener for header transition

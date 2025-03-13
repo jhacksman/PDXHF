@@ -11,20 +11,27 @@ body {
 header {
     background-color: #1b5e20;
     color: #ffffff;
-    padding: 20px 0;
+    padding: 0;
     text-align: center;
     background-image: url('../trees.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
     transition: all 0.3s ease;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: font-size 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Navigation Styles */
@@ -35,27 +42,79 @@ header h1 {
     left: 0;
     right: 0;
     z-index: 100;
-    opacity: 0;
+    height: 30px;
     transition: all 0.3s ease;
+    width: 100%;
+    opacity: 0;
     visibility: hidden;
     transform: translateY(-100%);
-    width: 100%;
 }
 
 .top-bar {
     background-color: #1b5e20;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.top-bar .title-area {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.top-bar .name h1 {
+    margin: 0;
+    font-size: 1em;
+    line-height: 30px;
 }
 
 .top-bar .name h1 a {
     color: white;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    white-space: nowrap;
+}
+
+.top-bar .name h1 a img {
+    margin-right: 5px;
+    vertical-align: middle;
+    height: 20px;
+    width: 20px;
+}
+
+.top-bar-section {
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.top-bar-section ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 30px;
 }
 
 .top-bar-section ul li {
     background-color: #1b5e20;
+    display: inline-block;
+    margin: 0;
+    height: 30px;
 }
 
 .top-bar-section ul li > a {
     color: #ffffff;
+    padding: 0 8px;
+    line-height: 30px;
+    display: block;
+    font-size: 0.8em;
 }
 
 .top-bar-section ul li.active > a {

@@ -1,111 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Chat - Portland Hacker Foundation</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
-    <style>
-        #chat-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        #message-container {
-            height: 400px;
-            overflow-y: auto;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-        }
-        .message {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .user-message {
-            background-color: #e3f2fd;
-            border-left: 4px solid #2196F3;
-        }
-        .ai-message {
-            background-color: #f1f8e9;
-            border-left: 4px solid #8bc34a;
-        }
-        .thinking {
-            color: #666;
-            font-style: italic;
-        }
-        #user-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .code-block {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 10px;
-            margin: 10px 0;
-            position: relative;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
-        .copy-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 2px 5px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-        .copy-button:hover {
-            background-color: #f0f0f0;
-        }
-        .thoughts-container {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
-            display: none;
-        }
-        .thoughts-toggle {
-            color: #2196F3;
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 12px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portland Hacker Foundation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 </head>
 <body>
 <header>
     <h1>Portland Hacker Foundation</h1>
 </header>
 
-<!-- Navigation that appears on scroll -->
-<div class='contain-to-grid'>
+<div class='contain-to-grid sticky'>
   <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
     <ul class='title-area'>
       <li class='name'>
-        <h1>
-          <a href='index.html'>
-            <img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" />
-            Portland Hacker Foundation
-          </a>
-        </h1>
+        <h1><a href='index.html'><img alt="Portland Hacker Foundation" src="favicon.ico" width="32" height="32" /> Portland Hacker Foundation</a></h1>
       </li>
       <li class='toggle-topbar menu-icon'>
         <a href='#'>Menu</a>
@@ -113,21 +27,11 @@
     </ul>
     <section class='top-bar-section'>
       <ul class="right">
-        <li class="">
-          <a href="index.html">Home</a>
-        </li>
-        <li class="active">
-          <a href="chat.html">Chat</a>
-        </li>
-        <li class="">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a>
-        </li>
-        <li class="">
-          <a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a>
-        </li>
-        <li class="">
-          <a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a>
-        </li>
+        <li class=""><a href="index.html">Home</a></li>
+        <li class="active"><a href="chat.html">Chat</a></li>
+        <li class=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaRK_Q_D808wyhj5cFVxF1wO9nUbItCgGJQuCJyHfUzVUVjw/viewform">Apply for a Grant</a></li>
+        <li class=""><a href="https://www.paypal.com/donate/?hosted_button_id=GP42Y6XNS8ZTA">Become a Sponsor</a></li>
+        <li class=""><a href="https://signal.group/#CjQKICe1IhiChi74GgLGJql1-YcUndkMvRtniTkAygWVlaSWEhAXFtsQRFJPPxtXyodsPbou">Join Signal Chat</a></li>
       </ul>
     </section>
   </nav>
@@ -211,6 +115,8 @@
   <div class='two spacing'></div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const messageContainer = document.getElementById('message-container');
@@ -436,8 +342,6 @@
         // Initialize with a welcome message
         addMessage('Welcome to the Portland Hacker Foundation chat! How can I help you today?');
     });
-    
-    $(document).foundation();
     
     // Add scroll event listener for header transition
     window.addEventListener('scroll', function() {
