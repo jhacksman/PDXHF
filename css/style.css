@@ -47,8 +47,8 @@ header h1 {
 
 .top-bar {
     background-color: #1b5e20;
-    height: 18px;
-    line-height: 18px;
+    height: 12px;
+    line-height: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,13 +58,13 @@ header h1 {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .top-bar-section {
     display: flex;
     align-items: center;
-    height: 18px;
+    height: 12px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
@@ -74,9 +74,9 @@ header h1 {
     display: flex;
     margin: 0;
     padding: 0;
-    height: 16px;
+    height: 12px;
     list-style: none;
-    gap: 2px;
+    gap: 1px;
     justify-content: center;
     align-items: center;
 }
@@ -85,21 +85,21 @@ header h1 {
     background-color: #1b5e20;
     display: inline-block;
     margin: 0;
-    height: 16px;
+    height: 12px;
     text-align: center;
-    padding: 0 1px;
+    padding: 0;
 }
 
 .top-bar-section ul li > a {
     color: #ffffff;
-    padding: 0;
-    line-height: 16px;
+    padding: 0 1px;
+    line-height: 12px;
     display: block;
-    font-size: 0.45em;
+    font-size: 0.35em;
     text-transform: uppercase;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     white-space: nowrap;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .top-bar-section ul li.active > a {
