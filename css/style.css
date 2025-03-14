@@ -214,16 +214,18 @@ hr::after {
   background-color: rgba(21, 76, 25, 0.7) !important;
 }
 
-/* Underline animation for all menu items */
-.top-bar-section ul.right > li > a::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  width: 0;
-  height: 2px;
-  background-color: #ffffff;
-  transition: width 0.3s ease;
+/* Underline animation for all menu items - DESKTOP ONLY */
+@media (min-width: 769px) {
+  .top-bar-section ul.right > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
 }
 
 /* Reset all pseudo elements for dropdown items */
@@ -471,6 +473,21 @@ hr::after {
     z-index: 999999 !important;
     padding: 20px 0 50px 0 !important;
     margin: 0 !important;
+    -webkit-appearance: none !important;
+  }
+  
+  /* Remove all underlines and borders */
+  .top-bar-section.expanded *,
+  .top-bar-section.expanded *::before,
+  .top-bar-section.expanded *::after {
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
   }
   
   .top-bar-section.expanded ul.right {
@@ -501,6 +518,20 @@ hr::after {
     background: none !important;
     border: none !important;
     box-shadow: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    outline: none !important;
+  }
+  
+  /* Override any underline animations */
+  .top-bar-section.expanded ul.right > li > a::before,
+  .top-bar-section.expanded ul.right > li > a::after {
+    display: none !important;
+    content: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    border: none !important;
+    background: none !important;
   }
   
   .top-bar-section.expanded ul.right > li:last-child > a {
