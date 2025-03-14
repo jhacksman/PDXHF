@@ -383,15 +383,16 @@ hr::after {
     font-size: 18px;
   }
   
-  /* Show hamburger icon on mobile */
+  /* Show hamburger icon on mobile - fixed far right position */
   .toggle-topbar.menu-icon {
     display: block;
     position: absolute;
-    right: 20px;
+    right: 15px !important;
     top: 0;
     height: 50px;
     display: flex;
     align-items: center;
+    z-index: 10000;
   }
   
   /* Single clean hamburger icon */
@@ -402,7 +403,7 @@ hr::after {
     display: block;
     position: relative;
     cursor: pointer;
-    margin-right: 15px;
+    margin: 0;
   }
   
   .toggle-topbar.menu-icon a span {
