@@ -369,11 +369,25 @@ hr::after {
   display: none;
 }
 
+/* Disable all tablet-specific rendering */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* Force all tablet devices to use desktop styles */
+  .desktop-only {
+    display: block !important;
+  }
+  
+  /* Ensure banner title is full-sized on tablets */
+  .banner h1 {
+    font-size: 3em !important;
+  }
+}
+
 /* Desktop only class */
 .desktop-only {
   display: block;
 }
 
+/* Mobile breakpoint - anything below 768px */
 @media (max-width: 768px) {
   /* Hide desktop elements */
   .desktop-only {

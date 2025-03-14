@@ -1,8 +1,39 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <title>Portland Hacker Foundation</title>
+  
+  <!-- Custom CSS to override Foundation's breakpoints - Must come BEFORE foundation.css -->
+  <style>
+    /* Kill Foundation's medium (tablet) breakpoint completely */
+    meta.foundation-mq-medium, 
+    meta.foundation-mq-medium-only {
+      font-family: "/only screen and (min-width:1000000px)/";
+      width: 0;
+    }
+    
+    /* Ensure only small and large breakpoints exist */
+    @media (min-width: 40.063em) {
+      .show-for-medium,
+      .show-for-medium-up,
+      .show-for-medium-only {
+        display: none !important;
+      }
+      
+      .hide-for-medium,
+      .hide-for-medium-up,
+      .hide-for-medium-only {
+        display: inherit !important;
+      }
+      
+      .show-for-large,
+      .show-for-large-up {
+        display: inherit !important;
+      }
+    }
+  </style>
+  
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome.css">
