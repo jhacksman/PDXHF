@@ -465,9 +465,11 @@ hr::after {
     max-height: none !important;
     overflow-y: auto !important;
     background-color: rgba(27, 94, 32, 0.95) !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: none !important;
+    border: none !important;
     z-index: 999999 !important;
     padding: 20px 0 50px 0 !important;
+    margin: 0 !important;
   }
   
   .top-bar-section.expanded ul.right {
@@ -476,6 +478,8 @@ hr::after {
     width: 100%;
     height: auto;
     padding: 10px 0;
+    margin: 0 !important;
+    list-style: none !important;
   }
   
   .top-bar-section.expanded ul.right > li {
@@ -483,6 +487,8 @@ hr::after {
     width: 100%;
     float: none;
     height: auto;
+    border: none !important;
+    background: none !important;
   }
   
   .top-bar-section.expanded ul.right > li > a {
@@ -491,11 +497,13 @@ hr::after {
     line-height: 1.5;
     text-align: left;
     justify-content: flex-start;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   .top-bar-section.expanded ul.right > li:last-child > a {
-    border-bottom: none;
+    border: none !important;
   }
   
   .top-bar-section .dropdown {
