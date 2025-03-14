@@ -13,6 +13,19 @@ $(document).ready(function() {
     // Toggle expanded class on top-bar-section
     $('.top-bar-section').toggleClass('expanded');
     
+    // Force menu to be visible when expanded
+    if ($('.top-bar-section').hasClass('expanded')) {
+      $('body').css('overflow', 'hidden'); // Prevent scrolling behind menu
+      $('.top-bar-section').css({
+        'display': 'block',
+        'visibility': 'visible',
+        'position': 'fixed',
+        'z-index': '999999'
+      });
+    } else {
+      $('body').css('overflow', '');
+    }
+    
     console.log('Mobile menu toggled', $('.top-bar-section').hasClass('expanded'));
   });
   

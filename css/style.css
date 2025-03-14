@@ -286,7 +286,15 @@ hr::after {
 }
 
 .toggle-topbar.menu-icon a span {
-  display: none;
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  top: 8px;
 }
 
 /* Dropdown Navigation */
@@ -386,32 +394,25 @@ hr::after {
     align-items: center;
   }
   
-  /* Style the hamburger icon - reduced to 60% size */
+  /* Single clean hamburger icon */
   .toggle-topbar.menu-icon a {
-    width: 18px; /* 60% of 30px */
-    height: 18px; /* 60% of 30px */
-    position: relative;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .toggle-topbar.menu-icon a span {
+    width: 20px;
+    height: 20px;
+    padding: 0;
     display: block;
-    position: absolute;
-    height: 2px; /* Reduced from 3px */
-    width: 100%;
-    background: #ffffff;
-    border-radius: 2px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    margin-right: 15px;
   }
   
-  /* Create the three hamburger lines using span and pseudo-elements */
   .toggle-topbar.menu-icon a span {
-    top: 5px; /* Reduced from 8px */
+    position: absolute;
+    top: 9px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
   }
   
   .toggle-topbar.menu-icon a span::before,
@@ -419,31 +420,32 @@ hr::after {
     content: '';
     position: absolute;
     display: block;
-    height: 2px; /* Reduced from 3px */
     width: 100%;
-    background: #ffffff;
-    border-radius: 2px;
-    opacity: 1;
+    height: 2px;
+    background-color: #ffffff;
     left: 0;
   }
   
   .toggle-topbar.menu-icon a span::before {
-    top: 5px; /* Reduced from 8px */
+    top: -6px;
   }
   
   .toggle-topbar.menu-icon a span::after {
-    top: 10px; /* Reduced from 16px */
+    top: 6px;
   }
   
-  /* For expanded menu state */
-  .expanded .toggle-topbar.menu-icon a::before {
-    top: 13px;
-    box-shadow: 0 0 0 0 transparent;
+  /* For expanded menu state - X animation */
+  .expanded .toggle-topbar.menu-icon a span {
+    background-color: transparent;
+  }
+  
+  .expanded .toggle-topbar.menu-icon a span::before {
+    top: 0;
     transform: rotate(45deg);
   }
   
-  .expanded .toggle-topbar.menu-icon a::after {
-    bottom: 14px;
+  .expanded .toggle-topbar.menu-icon a span::after {
+    top: 0;
     transform: rotate(-45deg);
   }
   
@@ -452,18 +454,20 @@ hr::after {
     display: none;
   }
   
-  /* When expanded, show the menu */
+  /* When expanded, show the menu - fullscreen overlay approach */
   .top-bar-section.expanded ul {
     display: block;
-    position: fixed; /* Changed from absolute to fixed */
-    top: 50px;
-    left: 0;
-    width: 100%;
-    max-height: calc(100vh - 50px); /* Make it fill the screen height */
-    overflow-y: auto; /* Allow scrolling if needed */
+    position: fixed !important;
+    top: 50px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 50px) !important;
+    max-height: none !important;
+    overflow-y: auto !important;
     background-color: rgba(27, 94, 32, 0.95) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 9999; /* Higher z-index to ensure it's on top */
+    z-index: 999999 !important;
+    padding: 20px 0 50px 0 !important;
   }
   
   .top-bar-section.expanded ul.right {
