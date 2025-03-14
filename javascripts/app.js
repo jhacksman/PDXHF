@@ -3,7 +3,8 @@ $(document).foundation();
 
 // Mobile menu toggle
 $(document).ready(function() {
-  $('.toggle-topbar.menu-icon a').click(function() {
+  $('.toggle-topbar.menu-icon a').click(function(event) {
+    event.preventDefault();
     $('.top-bar-section').toggleClass('expanded');
   });
   
