@@ -386,36 +386,53 @@ hr::after {
     align-items: center;
   }
   
-  /* Style the hamburger icon */
+  /* Style the hamburger icon - reduced to 60% size */
   .toggle-topbar.menu-icon a {
-    width: 40px;
-    height: 30px;
+    width: 18px; /* 60% of 30px */
+    height: 18px; /* 60% of 30px */
     position: relative;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
   }
   
-  .toggle-topbar.menu-icon a::before,
-  .toggle-topbar.menu-icon a::after {
+  .toggle-topbar.menu-icon a span {
+    display: block;
+    position: absolute;
+    height: 2px; /* Reduced from 3px */
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+  
+  /* Create the three hamburger lines using span and pseudo-elements */
+  .toggle-topbar.menu-icon a span {
+    top: 5px; /* Reduced from 8px */
+  }
+  
+  .toggle-topbar.menu-icon a span::before,
+  .toggle-topbar.menu-icon a span::after {
     content: '';
     position: absolute;
     display: block;
+    height: 2px; /* Reduced from 3px */
     width: 100%;
-    height: 3px;
     background: #ffffff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
   }
   
-  .toggle-topbar.menu-icon a::before {
-    top: 10px;
-    box-shadow: 0 0 0 0 transparent;
-    box-shadow: 0 10px 0 #ffffff;
+  .toggle-topbar.menu-icon a span::before {
+    top: 5px; /* Reduced from 8px */
   }
   
-  .toggle-topbar.menu-icon a::after {
-    bottom: 10px;
+  .toggle-topbar.menu-icon a span::after {
+    top: 10px; /* Reduced from 16px */
   }
   
   /* For expanded menu state */
@@ -438,13 +455,15 @@ hr::after {
   /* When expanded, show the menu */
   .top-bar-section.expanded ul {
     display: block;
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     top: 50px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 50px); /* Make it fill the screen height */
+    overflow-y: auto; /* Allow scrolling if needed */
     background-color: rgba(27, 94, 32, 0.95) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 9999; /* Higher z-index to ensure it's on top */
   }
   
   .top-bar-section.expanded ul.right {
@@ -486,7 +505,10 @@ hr::after {
   .top-bar-section.expanded .has-dropdown.hover > .dropdown,
   .top-bar-section.expanded .has-dropdown.active-dropdown > .dropdown {
     display: block;
+    position: static !important; /* Force static positioning */
     background-color: rgba(21, 76, 25, 0.7) !important;
+    max-height: none !important; /* Remove any height restrictions */
+    overflow: visible !important; /* Ensure content isn't cut off */
   }
   
   .top-bar-section.expanded .dropdown li > a {
