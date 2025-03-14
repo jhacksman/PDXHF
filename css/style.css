@@ -121,7 +121,8 @@ hr::after {
   color: #ffffff;
 }
 
-@media (max-width: 600px) {
+/* All mobile sizes */
+@media (max-width: 768px) {
   .banner h1 {
     font-size: 2.5em;
   }
@@ -702,24 +703,25 @@ main {
   }
 }
 
-/* Responsive Design */
+/* Responsive Design - Simplified to Desktop and Mobile only */
 @media (max-width: 1200px) {
   .row {
     padding: 0 15px;
   }
 }
 
+/* Mobile styles (all sizes ≤768px) */
 @media (max-width: 768px) {
   main {
-    margin: 40px auto;
+    margin: 30px auto;
   }
   
   .banner h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .content-section {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   #footer {
@@ -727,31 +729,13 @@ main {
   }
   
   .large-3, .medium-3 {
-    width: 50%;
+    width: 100%;
     margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  .banner h1 {
-    font-size: 2rem;
-  }
-  
-  main {
-    margin: 30px auto;
   }
   
   .button {
     width: 100%;
     margin: 10px 0;
-  }
-  
-  .large-3, .medium-3 {
-    width: 100%;
-  }
-  
-  .content-section {
-    padding: 1rem;
   }
 }
 
