@@ -135,13 +135,15 @@ hr::after {
   left: 0;
   width: 100%;
   z-index: 1000; /* Updated z-index for proper stacking */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* Removed shadow that might cause white line */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transform: translateY(-100%);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
   height: 50px; /* Half height of banner */
+  border: none; /* Ensure no borders */
+  margin: 0; /* Ensure no margins */
 }
 
 .contain-to-grid.show-nav {
@@ -161,6 +163,9 @@ hr::after {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  border: none; /* Ensure no borders */
+  outline: none; /* No outlines */
+  box-shadow: none; /* No shadows */
 }
 
 .top-bar-section ul {
@@ -173,6 +178,11 @@ hr::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none; /* Ensure no borders */
+  border-top: none;
+  border-bottom: none;
+  box-shadow: none; /* No shadows */
+  background: transparent; /* Ensure background is transparent */
 }
 
 .title-area li.name {
