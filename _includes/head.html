@@ -7,4 +7,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="shortcut icon" href="favicon.ico">
+  <style>
+    /* Force desktop mode for tablets - eliminate tablet breakpoint */
+    @media only screen and (min-width: 50em) and (max-width: 64em) {
+      .banner h1 {
+        font-size: 3em !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+      }
+      
+      /* Override Foundation's breakpoints */
+      meta.foundation-mq-medium-only {
+        font-family: none;
+        width: 0;
+      }
+    }
+  </style>
 </head>
