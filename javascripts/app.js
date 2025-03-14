@@ -6,7 +6,10 @@ $(document).ready(function() {
   $('.toggle-topbar.menu-icon a').click(function(event) {
     event.preventDefault();
     $('.top-bar-section').toggleClass('expanded');
-    console.log('Mobile menu toggled');
+    console.log('Mobile menu toggled', $('.top-bar-section').hasClass('expanded'));
+    
+    // Force redraw to ensure the menu is visible
+    $('.top-bar-section').hide().show(0);
   });
   
   // Prevent dropdown parent links from navigating and toggle dropdown on click

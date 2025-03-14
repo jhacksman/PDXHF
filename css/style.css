@@ -341,33 +341,34 @@ hr::after {
   display: none;
 }
 
-/* Mobile menu row styling */
-.mobile-menu-row {
-  display: none;
-  width: 100%;
-  background-color: rgba(27, 94, 32, 0.95);
-  padding: 10px 15px;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-title {
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 1.1rem;
-  text-align: center;
-  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 @media (max-width: 768px) {
   /* Mobile navigation styles */
-  .title-area li.name {
-    display: none;
+  .title-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
   
-  .mobile-menu-row {
+  .title-area li.name {
     display: flex;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .title-area li.name h1 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .title-area li.name h1 a {
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    font-size: 18px;
+  }
+  
+  .toggle-topbar.menu-icon {
+    margin-right: 10px;
   }
   
   .top-bar-section ul {
@@ -377,7 +378,7 @@ hr::after {
   .top-bar-section.expanded ul {
     display: block;
     position: absolute;
-    top: 90px; /* Adjusted for two rows */
+    top: 50px;
     left: 0;
     width: 100%;
     background-color: rgba(27, 94, 32, 0.95) !important;
