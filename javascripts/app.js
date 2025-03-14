@@ -3,10 +3,8 @@ $(document).foundation();
 
 // Mobile menu toggle
 $(document).ready(function() {
-  // Toggle mobile menu
-  $('.toggle-topbar.menu-icon a').on('click', function(event) {
-    event.preventDefault();
-    
+  // Make the entire hamburger icon area clickable
+  $('.toggle-topbar.menu-icon').on('click', function(event) {
     // Toggle expanded class on top-bar
     $(this).closest('.top-bar').toggleClass('expanded');
     
@@ -27,6 +25,14 @@ $(document).ready(function() {
     }
     
     console.log('Mobile menu toggled', $('.top-bar-section').hasClass('expanded'));
+    return false; // Cancel default behavior
+  });
+  
+  // Also handle the link click separately
+  $('.toggle-topbar.menu-icon a').on('click', function(event) {
+    event.preventDefault();
+    $(this).parent().click(); // Trigger the parent click handler
+    return false;
   });
   
   // Prevent dropdown parent links from navigating and toggle dropdown on click
