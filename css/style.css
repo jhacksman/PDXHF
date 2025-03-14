@@ -369,14 +369,14 @@ hr::after {
   display: none;
 }
 
+/* Desktop only class */
+.desktop-only {
+  display: block;
+}
+
 @media (max-width: 768px) {
-  /* Remove mobile navigation completely */
-  .toggle-topbar.menu-icon {
-    display: none !important;
-  }
-  
-  /* Hide navigation on small screens */
-  .contain-to-grid {
+  /* Hide desktop elements */
+  .desktop-only {
     display: none !important;
   }
   
