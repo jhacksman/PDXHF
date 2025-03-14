@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
       event.stopPropagation();
     }
     
+    // First, remove any hide-nav class that might be preventing display
+    var navigation = document.getElementById('navigation');
+    if (navigation) {
+      navigation.classList.remove('hide-nav');
+    }
+    
     // Toggle classes
     topBar.classList.toggle('expanded');
     menu.classList.toggle('expanded');
@@ -25,10 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'hidden'; // Prevent scrolling
       menu.style.display = 'block';
       menu.style.visibility = 'visible';
+      menu.style.opacity = '1';
+      menu.style.transform = 'none';
       menu.style.position = 'fixed';
       menu.style.zIndex = '999999';
     } else {
       document.body.style.overflow = '';
+      // Don't hide immediately, let CSS transitions work
+      setTimeout(function() {
+        if (!menu.classList.contains('expanded')) {
+          menu.style.display = '';
+        }
+      }, 300);
     }
     
     console.log('Menu toggled', menu.classList.contains('expanded'));
