@@ -1,19 +1,19 @@
 // Foundation JavaScript
 $(document).foundation();
 
-// Mobile dropdown handling
+// Mobile menu toggle
 $(document).ready(function() {
-  // Mobile dropdown handling
-  $('.mobile-dropdown > a').on('click', function(event) {
+  // Toggle mobile menu
+  $('.toggle-topbar.menu-icon a').on('click', function(event) {
     event.preventDefault();
     
-    // Close all other open dropdowns
-    $('.mobile-dropdown').not($(this).parent()).removeClass('active-mobile-dropdown');
+    // Toggle expanded class on top-bar
+    $(this).closest('.top-bar').toggleClass('expanded');
     
-    // Toggle this dropdown
-    $(this).parent().toggleClass('active-mobile-dropdown');
+    // Toggle expanded class on top-bar-section
+    $('.top-bar-section').toggleClass('expanded');
     
-    console.log('Mobile dropdown toggled');
+    console.log('Mobile menu toggled', $('.top-bar-section').hasClass('expanded'));
   });
   
   // Prevent dropdown parent links from navigating and toggle dropdown on click
