@@ -7,15 +7,15 @@
   <!-- Force binary responsive design - only mobile or desktop -->
   <style>
     /* Mobile-first approach - everything is mobile by default */
-    @media only screen and (min-width: 769px) {
-      /* Only apply desktop styles at exactly 769px and above */
+    @media only screen and (min-width: 960px) {
+      /* Only apply desktop styles at 960px and above */
       .desktop-only {
         display: block !important;
       }
     }
     
-    /* Anything below 769px gets mobile styles */
-    @media only screen and (max-width: 768px) {
+    /* Anything 959px and below gets mobile styles */
+    @media only screen and (max-width: 959px) {
       .desktop-only {
         display: none !important;
       }
