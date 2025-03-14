@@ -1,37 +1,55 @@
 // Foundation JavaScript
 $(document).foundation();
 
-// Mobile menu toggle
-$(document).ready(function() {
-  // Make the entire hamburger icon area clickable
-  $('.toggle-topbar.menu-icon').on('click', function(event) {
-    // Toggle expanded class on top-bar
-    $(this).closest('.top-bar').toggleClass('expanded');
-    
-    // Toggle expanded class on top-bar-section
-    $('.top-bar-section').toggleClass('expanded');
-    
-    // Force menu to be visible when expanded
-    if ($('.top-bar-section').hasClass('expanded')) {
-      $('body').css('overflow', 'hidden'); // Prevent scrolling behind menu
-      $('.top-bar-section').css({
-        'display': 'block',
-        'visibility': 'visible',
-        'position': 'fixed',
-        'z-index': '999999'
-      });
-    } else {
-      $('body').css('overflow', '');
+// Mobile menu toggle - simplified and reliable implementation
+document.addEventListener('DOMContentLoaded', function() {
+  // Direct DOM access for more reliable handling
+  var hamburger = document.querySelector('.toggle-topbar.menu-icon');
+  var topBar = document.querySelector('.top-bar');
+  var menu = document.querySelector('.top-bar-section');
+  
+  // Simple toggle function
+  function toggleMenu(event) {
+    // Prevent any default action
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
     }
     
-    console.log('Mobile menu toggled', $('.top-bar-section').hasClass('expanded'));
-    return false; // Cancel default behavior
-  });
+    // Toggle classes
+    topBar.classList.toggle('expanded');
+    menu.classList.toggle('expanded');
+    
+    // Force visibility when expanded
+    if (menu.classList.contains('expanded')) {
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      menu.style.display = 'block';
+      menu.style.visibility = 'visible';
+      menu.style.position = 'fixed';
+      menu.style.zIndex = '999999';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    console.log('Menu toggled', menu.classList.contains('expanded'));
+    return false;
+  }
   
-  // Also handle the link click separately
-  $('.toggle-topbar.menu-icon a').on('click', function(event) {
+  // Attach click handler to the hamburger icon AND its child link
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMenu);
+    
+    // Also handle the link click
+    var hamburgerLink = hamburger.querySelector('a');
+    if (hamburgerLink) {
+      hamburgerLink.addEventListener('click', toggleMenu);
+    }
+  }
+  
+  // Also use jQuery for redundancy
+  $('.toggle-topbar.menu-icon, .toggle-topbar.menu-icon a').on('click', function(event) {
     event.preventDefault();
-    $(this).parent().click(); // Trigger the parent click handler
+    toggleMenu();
     return false;
   });
   
