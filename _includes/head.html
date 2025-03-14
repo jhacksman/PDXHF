@@ -1,35 +1,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portland Hacker Foundation</title>
   
-  <!-- Custom CSS to override Foundation's breakpoints - Must come BEFORE foundation.css -->
+  <!-- Force binary responsive design - only mobile or desktop -->
   <style>
-    /* Kill Foundation's medium (tablet) breakpoint completely */
-    meta.foundation-mq-medium, 
-    meta.foundation-mq-medium-only {
-      font-family: "/only screen and (min-width:1000000px)/";
-      width: 0;
+    /* Mobile-first approach - everything is mobile by default */
+    @media only screen and (min-width: 769px) {
+      /* Only apply desktop styles at exactly 769px and above */
+      .desktop-only {
+        display: block !important;
+      }
     }
     
-    /* Ensure only small and large breakpoints exist */
-    @media (min-width: 40.063em) {
-      .show-for-medium,
-      .show-for-medium-up,
-      .show-for-medium-only {
+    /* Anything below 769px gets mobile styles */
+    @media only screen and (max-width: 768px) {
+      .desktop-only {
         display: none !important;
       }
       
-      .hide-for-medium,
-      .hide-for-medium-up,
-      .hide-for-medium-only {
-        display: inherit !important;
-      }
-      
-      .show-for-large,
-      .show-for-large-up {
-        display: inherit !important;
+      .banner {
+        padding-bottom: 30px;
       }
     }
   </style>
