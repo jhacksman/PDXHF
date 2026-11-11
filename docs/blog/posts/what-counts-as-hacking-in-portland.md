@@ -11,34 +11,28 @@ tags:
   - education
 ---
 
-What does a public records request have in common with a USB drive or a biology workshop? Each can give someone a way to investigate a question they couldn't answer before.
+A funded plan for free workshops on using Tails USB drives for privacy. A FOIA workshop where people learned to make useful public records requests. A proposed PCR workshop that would give people hands-on experience with DNA-analysis equipment.
 
-That's a good place to start with the word “hacker.” You get curious about how something works, find a way to look more closely, and share what you learn. There is plenty of room for that in Portland, including for people who have never written a line of code.
+What do these three things have in common?
+
+They're different ways of hacking. Each starts with tools or methods that already exist and makes them more useful to other people. That might mean helping someone understand a privacy tool, adapting a records request to answer a local question, or making lab equipment available for others to learn on.
+
+Here's the definition: Take something, improve it, share it with the rest of the world.
 
 <!-- more -->
 
-## Ask a better question
+## Make it useful to someone else
 
-At our [first FOIA Party](thanks-for-coming-foia-party.md), Kate Kaye showed people how to make useful public records requests and how journalists use the results. Some of her examples concerned surveillance here in Portland.
+An improvement can be as simple as making a tool easier to learn. The [Tails USB workshop proposal we funded](meeting-2025-09-10.md#grant-tails-usb) calls for free instruction in installing and using Tails, connecting through Tor, and understanding the tool's privacy limits. Knowing where a tool stops helping is part of knowing how to use it. The funding is documented; the workshops have not yet been reported as completed.
 
-Even choosing the words in a request takes investigation. An agency might call a drone an “unmanned aerial vehicle.” Finding that out can help you ask for the records you actually want. You learn a little about how the system works, then use that knowledge to look further.
+Sharing skills is something we've already seen at our [first FOIA Party](thanks-for-coming-foia-party.md). Kate Kaye showed people how to make useful public records requests, drawing on her reporting about surveillance here in Portland. Even the words in a request matter: an agency might call a drone an “unmanned aerial vehicle.” Learning that detail can help someone get the records they were looking for. They can then share what they find, or help the next person write a better request.
 
-That work belongs in a hacker community. So does helping someone else understand the documents when they arrive.
+Sometimes the obstacle is access to equipment. In October, we [approved support for proposed PCR workshops and a shared DNA-analysis kit](meeting-2026-10-14.md#grant-2026-pcr-workshop). The plan includes at least one hands-on workshop, followed by equipment loans or help running experiments. Identifying fungi and plants are among the suggested applications. Those activities have not yet been reported as completed, but ongoing access is an important part of the proposal: people would have a way to keep learning after the workshop.
 
-## Learn what your tools can do
+## Small effort, more people learning
 
-The [Tails USB workshops we funded](meeting-2025-09-10.md#grant-tails-usb) were proposed as free, hands-on privacy education. The plan covers installing and using Tails, connecting through Tor, and understanding the limits of those tools.
+This is where [asymmetric impact](small-grants-big-impact.md) comes in. A modest amount of support can make a workshop possible. Someone who learns there can use that knowledge in their own work and pass it along. Shared equipment can serve more than one person's project. A useful set of instructions can save each new person from getting stuck in the same place.
 
-That last part matters. Learning to use a privacy tool includes asking what it protects and where you still need to be careful. A workshop that helps people ask those questions gives them something useful to take home along with the software.
+None of that happens automatically. Someone has to explain what they tried, answer questions, or make the tools available. That effort is part of the hacking too. It gives other people a place to start and something they can improve in turn.
 
-## Make room at the lab bench
-
-In October, we [approved support for PCR workshops and shared equipment](meeting-2026-10-14.md#grant-2026-pcr-workshop). The proposal includes a portable DNA-analysis kit, a hands-on workshop, and continued access through equipment loans or help with experiments. Identifying fungi and plants are among the suggested applications.
-
-That work is still planned. The appeal is easy to understand, though: someone has a question about the living world and wants access to the tools to investigate it. Shared equipment could let more people try, and learn enough to help the next person.
-
-## Bring a question
-
-You don't need to arrive with a finished project or a particular job title. Maybe you've been wondering what information a local agency collects. Maybe there's a tool you want to understand well enough to teach a friend.
-
-Bring that question to the [PDXHF community](../../index.md). Tell us what you've tried and where you're stuck. And if you've already figured something out, write it down so somebody else can use it.
+You don't need a particular job title to take part. Bring something you're working on to the [PDXHF community](../../index.md), even if you're stuck. Tell us what you want to change and who it could help. If you've figured out a better way to do something, show us how.
