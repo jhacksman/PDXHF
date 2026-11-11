@@ -123,6 +123,8 @@ Expected RSS outputs from a build:
 
 ## Agent Tips
 
+- For the November 2026 editorial review, the collaborator requested a draft PR internal to `jhacksman/PDXHF`, leaving upstream submission to them. This task-specific direction overrides the default-branch push rule. Match existing conversational posts and use no em dashes. The fork's old `main` predates MkDocs; an isolated review base from current upstream keeps the post diff focused without changing either `main`.
+- For this editorial, open with exactly three examples: funded Tails workshop plans, the completed FOIA workshop, and proposed PCR work. Use the collaborator's definition verbatim and without attribution: “Take something, improve it, share it with the rest of the world.” Connect sharing tools and skills to asymmetric impact.
 - Keep homepage content and donation CTAs intact when editing copy.
 - Use short, readable blog posts with a clear date and tags.
 - Header icon buttons (RSS/GitHub) are injected by `docs/javascripts/extra.js` and wired via `mkdocs.yml` `extra_javascript`.
